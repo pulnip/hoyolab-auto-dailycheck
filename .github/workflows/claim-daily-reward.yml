@@ -1,0 +1,24 @@
+name: Claim Daily Reward
+
+on:
+  schedule:
+    - cron: '0 21 * * *' # KST(UTC+9) 06:00
+  workflow_dispatch:
+
+jobs:
+  claim-daily-reward:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@main
+
+    - name: Set up Python
+      run: pip install --upgrade --force-reinstall git+https://github.com/thesadru/genshin.py@dev
+
+    - name: Claim daily reward
+      env:
+        HOYO_LTUID: ${{ secrets.HOYO_LTUID }}
+        HOYO_LTOKEN: ${{ secrets.HOYO_LTOKEN }}
+        HOYO_LTIMID: ${{ secrets.HOYO_LTIMID }}
+      run: python claim_daily_reward.py
