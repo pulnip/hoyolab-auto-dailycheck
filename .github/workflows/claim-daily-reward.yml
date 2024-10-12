@@ -14,7 +14,7 @@ jobs:
       uses: actions/checkout@main
 
     - name: Set up Python
-      run: pip install --upgrade --force-reinstall git+https://github.com/thesadru/genshin.py@dev
+      run: pip install genshin
 
     - name: Claim daily reward
       env:
