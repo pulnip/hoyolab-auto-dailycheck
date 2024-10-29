@@ -1,28 +1,4 @@
-import os
-import asyncio
 from genshin import Game, Client, InvalidCookies, AlreadyClaimed
-
-async def claim(ltuid: str, ltoken: str, ltmid: str, game: Game):
-    client=Client(
-        lang="ko-kr",
-        cookies={
-            "ltuid_v2": ltuid,
-            "ltoken_v2": ltoken,
-            "ltmid_v2": ltmid
-        }
-    )
-
-    try:
-        await client.claim_daily_reward(game=game)
-        status="✅"
-    except(InvalidCookies, AlreadyClaimed) as e:
-        status="🟡"
-        
-    _, day=await client.get_reward_info(game=game)
-    rewards=await client.get_monthly_rewards(game=game)
-    reward=rewards[day-1]
-
-    print(f"Claimed[{status}]: {reward.name} x{reward.amount}")
 
 class AccountInfo:
     id: str
@@ -74,6 +50,9 @@ class AccountInfo:
             print(f"User{self.id} Claimed[{status}]: {reward.name} x{reward.amount}")
 
 if __name__ == "__main__":
+    import os
+    import asyncio
+
     account_num=int(os.getenv("HOYO_ACCOUNT_NUM"))
     ltuids=os.getenv("USERS_LTUID").split(",")
     ltokens=os.getenv("USERS_LTOKEN").split(",")
