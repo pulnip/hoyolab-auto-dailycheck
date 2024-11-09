@@ -17,5 +17,6 @@ jobs:
       run: pip install genshin
 
     - name: Claim daily reward
-      env: ${{ secrets }}
+      env:
+        ${{ insert }}: ${{ secrets }}
       run: python claim_daily_reward.py
