@@ -24,6 +24,9 @@
   - if you have multiple account, **USER0_LTUID** and **USER1_LTUID** ...(and so on) should be specified.
 - **USER#_LTOKEN** : `ltoken_v2`, personal HoYoLab API access token of account number #
 - **USER#_LTMID** : `ltmid_v2` Another key value to access API of account number #
+- ##USER#_TARGET_GAMES : the game you want to claim the reward
+  - `HONKAI`, `TOT`, `GENSHIN`, `STARRAIL`, `ZZZ`
+  - for multiple games, set it to a string separated by '+' (ex. `GENSHIN+STARRAIL`, `HONHAI+ZZZ+GENSHIN` etc.)
 - PREFER_LANG : (optional) the Language of the information printed at _Actions_
   - `zh-cn`, `zh-tw`, `de-de`, `en-us`, `es-es`, `fr-fr`, `id-id`, `it-it`, `ja-jp`, `ko-kr`, `pt-pt`, `ru-ru`, `th-th`, `vi-vn`, `tr-tr`
   - not specified, `en-us` by default
