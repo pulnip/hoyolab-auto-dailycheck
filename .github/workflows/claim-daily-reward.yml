@@ -19,4 +19,4 @@ jobs:
     - name: Claim daily reward
       env:
         ${{ insert }}: ${{ secrets }}
-      run: python claim_daily_reward.py
+      run: python -u claim_daily_reward.py
