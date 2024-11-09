@@ -2,7 +2,7 @@ name: Claim Daily Reward
 
 on:
   schedule:
-    - cron: '0 21 * * *' # KST(UTC+9) 06:00
+    - cron: '0 21 * * *' # KST(UTC+21) 06:00
   workflow_dispatch:
 
 jobs:
