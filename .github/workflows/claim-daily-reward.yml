@@ -17,10 +17,5 @@ jobs:
       run: pip install genshin
 
     - name: Claim daily reward
-      env:
-        HOYO_ACCOUNT_NUM: ${{ secrets.HOYO_ACCOUNT_NUM }}
-        USERS_LTUID: ${{ secrets.USERS_LTUID }}
-        USERS_LTOKEN: ${{ secrets.USERS_LTOKEN }}
-        USERS_LTMID: ${{ secrets.USERS_LTMID }}
-        USERS_TARGET_GAMES: ${{ secrets.USERS_TARGET_GAMES }}
+      env: ${{ secrets }}
       run: python claim_daily_reward.py
