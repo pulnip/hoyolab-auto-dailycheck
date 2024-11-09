@@ -59,7 +59,12 @@ if __name__ == "__main__":
     if preferred_lang is None:
         preferred_lang="en-us"
 
-    account_num=int(os.getenv("HOYO_ACCOUNT_NUM"))
+    account_num=os.getenv("HOYO_ACCOUNT_NUM")
+    if account_num is None:
+        account_num = 1
+    else:
+        account_num = int(account_num)
+    
     accounts=[]
 
     for i in range(account_num):
